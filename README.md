@@ -1,5 +1,5 @@
 # Gait-Neural-Network
-Gait Neutal Network for Human-Exoskeleton Interaction
+Gait Neutal Network for Human-Exoskeleton Interaction.
 In order to adapt to the input of the model, it is recommended to build the data set according to the requirements.
 
 The data set format is as follows:
