@@ -70,9 +70,6 @@ num_channels_part2 = [args.nhid_part2] * args.levels_part2
 
 kernel_size = args.ksize
 
-# permutation
-permute = torch.Tensor(np.random.permutation(10*36).astype(np.float64)).long()
-permute_inter = torch.Tensor(np.random.permutation(5 * 36).astype(np.float64)).long()
 
 print(args)
 
@@ -124,8 +121,7 @@ def train(epoch):
         sample_data, inter_data, label_data, motion_label = sample_data.cuda(), inter_data.cuda(), label_data.cuda(), \
                                                             motion_label.cuda()
 
-        if args.permute:
-            sample_data, inter_data = sample_data[:, :, permute], inter_data[:, :, permute]
+  
 
         optimizer.zero_grad()
 
@@ -195,8 +191,6 @@ def val():
 
         sample_data, reg_target, cls_target = sample_data.cuda(), reg_target.cuda(), cls_target.cuda()
 
-        if args.permute:
-            sample_data = sample_data[:, :, permute]
 
         optimizer.zero_grad()
         _, reg_output, cls_output = model(sample_data)
