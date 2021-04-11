@@ -25,7 +25,7 @@ class TCN(nn.Module):
         output = self.fc2(output_feature.view(-1, output_feature.size()[1]*output_feature.size()[2]))
 
    
-        motion_input = self.discriminator(output_feature.view(-1, output_feature.size()[1]*output_feature.size()[2]))
-        motion_label_output = nn.functional.log_softmax(motion_input, dim=1)
+        motion_output = self.discriminator(output_feature.view(-1, output_feature.size()[1]*output_feature.size()[2]))
+#         motion_label_output = nn.functional.log_softmax(motion_input, dim=1)
 
-        return inter_data, output, motion_label_output
+        return inter_data, output, motion_output
