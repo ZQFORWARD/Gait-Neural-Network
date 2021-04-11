@@ -10,3 +10,6 @@ sample n: channel_1, channels_2, ......, channels_n, inter_channels_1, ... inter
 
 where, channel_n means your total sensor data channels (channel_n = sensor channels * input dataframe), inter_channels_n means the intermediate data (total_length = intermediate dataframe * sensor channels), 
 the label data means the predicted sensor data (data_length = sensor channels * 1), and the motion label is the action that match this data.
+
+
+In addition, the input dataframe length and intermediate dataframe length can be changed if you needed.
