@@ -13,7 +13,7 @@ class TCN(nn.Module):
         self.fc2 = nn.Linear(num_channels_part2[-1] * (inter_data_size[0] + input_length), output_size)
         self.inter_data_size = inter_data_size
 
-        self.discriminator = nn.Linear(num_channels_part2[-1] * (inter_data_size[0] + input_length), 3)  # 3 refers to the number of labels, you can modify it if needed.
+        self.discriminator = nn.Linear(num_channels_part2[-1] * (inter_data_size[0] + input_length), 3)  # 3 refers to the number of labels, you can modify it if needed, and we only use 1 fully connected layer, you can add more layers for better performance. .
 
     def forward(self, inputs):
         """input must have dimensions (N, C_in, L_in)"""
