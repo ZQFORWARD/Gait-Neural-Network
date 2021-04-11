@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# @Time: 2021/4/11 9:26
-# @Author: Zhou Quan
 # @Software: PyCharm
 
 import torch
