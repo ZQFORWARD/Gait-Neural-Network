@@ -29,9 +29,9 @@ class TemporalBlock(nn.Module):
         self.relu2 = nn.ReLU()
         self.dropout2 = nn.Dropout(dropout)
 
-        self.net = nn.Sequential(self.conv1, self.chomp1, self.relu1, self.dropout1,  # 构建网络，以后可以参考这种写法，感觉更简洁
+        self.net = nn.Sequential(self.conv1, self.chomp1, self.relu1, self.dropout1,  
                                  self.conv2, self.chomp2, self.relu2, self.dropout2)
-        self.downsample = nn.Conv1d(n_inputs, n_outputs, 1) if n_inputs != n_outputs else None  # 采用1x1卷积核使得输入输出大小一样
+        self.downsample = nn.Conv1d(n_inputs, n_outputs, 1) if n_inputs != n_outputs else None  
         self.relu = nn.ReLU()
         self.init_weights()
 
@@ -42,7 +42,7 @@ class TemporalBlock(nn.Module):
             self.downsample.weight.data.normal_(0, 0.01)
 
     def forward(self, x):
-        out = self.net(x)  # 居然还有这种写法，学习了
+        out = self.net(x) 
         res = x if self.downsample is None else self.downsample(x)
         return self.relu(out + res)  # + res
 
